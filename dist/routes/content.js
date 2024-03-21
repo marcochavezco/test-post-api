@@ -7,8 +7,12 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 router.post('/', (req, res) => {
     try {
-        const { id } = req.body;
-        res.json(id);
+        const content = req.body;
+        const idList = content.map((template) => {
+            const { id } = template;
+            return id;
+        });
+        res.send(idList);
     }
     catch (error) {
         res.status(400).send(error.message);
