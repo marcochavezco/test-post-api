@@ -7,8 +7,8 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 router.post('/', (req, res) => {
     try {
-        const content = req.body;
-        res.json(content);
+        const { id } = req.body;
+        res.json(id);
     }
     catch (error) {
         res.status(400).send(error.message);
