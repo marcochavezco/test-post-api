@@ -4,7 +4,7 @@ import templateRouter from './routes/content'
 const app = express()
 app.use(express.json())
 
-const PORT = 3000
+const port = process.env.PORT || 8080
 
 app.get('/ping', (_req, res) => {
   console.log('Someone pinged here!')
@@ -13,6 +13,6 @@ app.get('/ping', (_req, res) => {
 
 app.use('/', templateRouter)
 
-app.listen(PORT, () => {
-  console.log(`Server is on post ${PORT}`)
+app.listen(port, () => {
+  console.log(`Server is on post ${port}`)
 })
